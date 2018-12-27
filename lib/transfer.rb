@@ -1,7 +1,7 @@
 class Transfer
   attr_accessor :status
   
-  def initialize
+  def initialize ()
     @status = "pending"
   end
   
