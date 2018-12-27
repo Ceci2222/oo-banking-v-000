@@ -17,6 +17,16 @@ class Transfer
     if valid? == true
       sender.bank_account.balance -= amount
       receiver.bank_account.balance += amount
-      @status = 
-  
+      @status = "complete"
+    else
+      @status = "rejected"
+    end
+  end
+    
+    def reverse_transfer
+        @status == "complete"
+        sender.bank_account.balance += amount
+        receiver.bank_account.balance -= amount
+        @status = "reversed"
+    end  
 end
