@@ -14,7 +14,6 @@ class Transfer
   end
   
   def execute_transaction
-    if @status == "pending"
     if valid? != true
       @status = "rejected"
       "Transaction rejected. Please check your account balance."
