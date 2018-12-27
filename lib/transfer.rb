@@ -1,3 +1,4 @@
+require 'pry'
 class Transfer
   attr_accessor :status
   attr_reader :sender, :receiver, :amount
@@ -10,7 +11,7 @@ class Transfer
   end
   
   def valid?
-    sender.valid?  && receiver.valid?
+    sender.valid? && receiver.valid?
   end
   
   def execute_transaction
@@ -18,6 +19,7 @@ class Transfer
       sender.balance -= amount
       receiver.balance += amount
       @status = "complete"
+      binding.pry
     elsif sender.valid? != true
       @status = "rejected"
       "Transaction rejected. Please check your account balance."
